@@ -1,0 +1,18 @@
+
+.root {
+    height: 100vh;
+}
+
+.theme{
+    line-height: 12px;
+}
+
+.theme_light {
+    color: black;
+    background: white;
+}
+
+.theme_dark {
+    color: white;
+    background: black;
+}

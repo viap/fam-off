@@ -1,4 +1,5 @@
 import { Select } from "antd";
+import classNames from "classnames";
 import { FC } from "react";
 import { useSelector } from "react-redux";
 import { selectTheme } from "../../pages/Root/RootSelectors";
@@ -6,14 +7,16 @@ import { setTheme } from "../../pages/Root/RootSlice";
 import { useAppDispatch } from "../../redux/hooks";
 import { Themes } from "../../types/common";
 
-export const Menu: FC = () => {
+import styles from "./ThemeToggler.module.css";
+
+export const ThemeToggler: FC = () => {
   const dispatch = useAppDispatch();
 
   const theme = useSelector(selectTheme);
-
   const themes = Object.entries(Themes);
+
   return (
-    <div>
+    <div className={classNames(styles.themeToggler)}>
       <Select
         defaultValue={theme}
         style={{ width: 120 }}

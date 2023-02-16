@@ -1,39 +1,39 @@
-import classNames from "classnames";
-import React, { FC } from "react";
-import { useSelector } from "react-redux";
-import { Outlet } from "react-router-dom";
-import { selectTheme } from "./RootSelectors";
-import { Themes } from "../../types/common";
-import styles from "./Root.module.css";
+import classNames from "classnames"
+import React, { FC } from "react"
+import { useSelector } from "react-redux"
+import { Outlet } from "react-router-dom"
+import { selectTheme } from "./RootSelectors"
+import { Themes } from "../../types/common"
+import styles from "./Root.module.css"
 
-import { ThemeToggler } from "../../components/ThemeToggler/ThemeToggler";
+import { ThemeToggler } from "../../components/ThemeToggler/ThemeToggler"
 import {
   ConfigProvider,
   Layout,
   Breadcrumb,
   Menu,
   theme as antdTheme,
-} from "antd";
+} from "antd"
 import {
   LaptopOutlined,
   NotificationOutlined,
   UserOutlined,
-} from "@ant-design/icons";
-import type { MenuProps } from "antd";
+} from "@ant-design/icons"
+import type { MenuProps } from "antd"
 
-const { Header, Content, Sider } = Layout;
+const { Header, Content, Sider } = Layout
 
 const items1: MenuProps["items"] = ["1", "2", "3"].map((key) => ({
   key,
   label: `nav ${key}`,
-}));
+}))
 
 const items2: MenuProps["items"] = [
   UserOutlined,
   LaptopOutlined,
   NotificationOutlined,
 ].map((icon, index) => {
-  const key = String(index + 1);
+  const key = String(index + 1)
 
   return {
     key: `sub${key}`,
@@ -41,21 +41,21 @@ const items2: MenuProps["items"] = [
     label: `subnav ${key}`,
 
     children: new Array(4).fill(null).map((_, j) => {
-      const subKey: number = index * 4 + j + 1;
+      const subKey: number = index * 4 + j + 1
       return {
         key: subKey,
         label: `option${subKey}`,
-      };
+      }
     }),
-  };
-});
+  }
+})
 
 export const Root: FC = () => {
-  const theme = useSelector(selectTheme);
+  const theme = useSelector(selectTheme)
 
   const {
     token: { colorBgContainer },
-  } = antdTheme.useToken();
+  } = antdTheme.useToken()
 
   return (
     <ConfigProvider
@@ -108,5 +108,5 @@ export const Root: FC = () => {
         </Layout>
       </Layout>
     </ConfigProvider>
-  );
-};
+  )
+}

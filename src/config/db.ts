@@ -4,4 +4,4 @@ export const DbConfig = {
   login: "",
   password: "",
   port: "",
-};
+}

@@ -1,11 +1,11 @@
 export type DbCollections = {
-  users: User;
-};
+  users: User
+}
 
-export type Role = "admin" | "editor" | "user";
+export type Role = "admin" | "editor" | "user"
 
 export type User = {
-  id: number;
-  name: string;
-  role: Role;
-};
+  id: number
+  name: string
+  role: Role
+}
